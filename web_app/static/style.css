@@ -1,0 +1,165 @@
+/* Dark Theme + Glass Effect */
+
+/* Body Background */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e0e0e0;
+}
+
+/* Glassmorphism Box */
+.container {
+    width: 380px;
+    padding: 35px 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    margin-bottom: 25px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Steps hidden initially */
+.step {
+    display: none;
+    animation: fadeSlide 0.6s ease forwards;
+}
+
+/* Only Active Step */
+.step.active {
+    display: block;
+}
+
+/* Input Design */
+input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    font-size: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]::placeholder {
+    color: #cccccc;
+}
+
+/* Next Button */
+.next-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #5b5a7a, #242c3b);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.next-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* Final Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #bb86fc, #6200ea);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* Result Box Animation */
+.result {
+    margin-top: 22px;
+    padding: 16px;
+    background: rgba(33, 37, 55, 0.361);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 500;
+    animation: fadeSlide 0.6s ease;
+}
+.reset-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #0f112f, #23344b);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.reset-btn:hover {
+    transform: translateY(-3px);
+}
+
+
+/* Smooth Slide Animation */
+@keyframes fadeSlide {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+
+    /* Background image */
+    background: url("https://static.vecteezy.com/system/resources/previews/001/311/554/original/education-and-back-to-school-concept-free-vector.jpg") no-repeat center center/cover;
+
+    /* Subtle dark overlay for readability */
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    background: rgba(0, 0, 0, 0.55); /* dark overlay */
+    backdrop-filter: blur(3px);       /* light blur */
+    z-index: -1;
+}

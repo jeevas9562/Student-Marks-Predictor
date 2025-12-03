@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Marks Predictor</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Student Marks Predictor</h2>
+
+    <form method="post" id="multiStepForm">
+
+        <div class="step active">
+            <input type="text" name="study" id="study" placeholder="Study Hours">
+            <button type="button" class="next-btn" onclick="nextStep(0)">Next</button>
+        </div>
+
+        <div class="step">
+            <input type="text" name="sleep" id="sleep" placeholder="Sleep Hours">
+            <button type="button" class="next-btn" onclick="nextStep(1)">Next</button>
+        </div>
+
+        <div class="step">
+            <input type="text" name="attendance" id="attendance" placeholder="Attendance (%)">
+            <button type="button" class="next-btn" onclick="nextStep(2)">Next</button>
+        </div>
+
+        <div class="step">
+            <input type="text" name="extra" id="extra" placeholder="Extra Curricular Hours">
+            <button type="button" class="next-btn" onclick="nextStep(3)">Next</button>
+        </div>
+
+        <div class="step">
+            <input type="text" name="revision" id="revision" placeholder="Revision Hours">
+            <button type="submit" class="submit-btn">Predict</button>
+        </div>
+
+    </form>
+
+    {% if marks != "" %}
+    <div class="result">Predicted Marks: {{marks}}</div>
+    {% endif %}
+    {% if marks != "" %}
+    
+    <button type="button" class="reset-btn" onclick="resetPrediction()">
+        Next Prediction
+    </button>
+{% endif %}
+
+</div>
+
+<script>
+let currentStep = 0;
+
+function nextStep(stepIndex) {
+    let inputs = document.querySelectorAll(".step")[stepIndex].querySelector("input");
+
+    if (inputs.value.trim() === "") {
+        inputs.style.border = "2px solid red";
+        return;
+    } else {
+        inputs.style.border = "";
+    }
+
+    let steps = document.querySelectorAll(".step");
+    steps[stepIndex].classList.remove("active");
+    steps[stepIndex + 1].classList.add("active");
+}
+</script>
+
+<script>
+function resetPrediction() {
+    // Hide result box
+    document.querySelector(".result").style.display = "none";
+
+    // Hide reset button
+    document.querySelector(".reset-btn").style.display = "none";
+
+    // Reset form fields
+    const inputs = document.querySelectorAll("input[type='text']");
+    inputs.forEach(i => i.value = "");
+
+    // Restart from first step
+    const steps = document.querySelectorAll(".step");
+    steps.forEach(s => s.classList.remove("active"));
+    steps[0].classList.add("active");
+}
+</script>
+
+
+</body>
+</html>
