@@ -20,11 +20,6 @@ model = joblib.load(MODEL_PATH)
 #model = joblib.load("../models/student_marks_model.pkl")
 
 @app.route("/", methods=["GET", "POST"])
-def index():
-    return render_template("index.html", marks=predicted_marks)
-
-
-@app.route("/", methods=["GET", "POST"])
 def home():
     marks = ""
     if request.method == "POST":

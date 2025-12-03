@@ -1,7 +1,15 @@
+# Ignore Python cache and compiled files
 __pycache__/
 *.pyc
+
+# Ignore virtual environment folders
 env/
 venv/
-*.pkl
-*.csv
+
+# Ignore system files
 .DS_Store
+Thumbs.db
+
+# Ignore other unnecessary files (optional)
+*.log
+*.tmp
